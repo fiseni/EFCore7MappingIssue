@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("AppConnection")));
 //builder.Services.AddDbContext<AppDbContext>(x => x.UseInMemoryDatabase(Guid.NewGuid().ToString()));
 
-builder.Services.AddAutoMapper(typeof(AppDbContext).Assembly);
+builder.Services.AddCustomAutoMapper(typeof(AppDbContext).Assembly);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
