@@ -7,8 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("AppConnection")));
-//builder.Services.AddDbContext<AppDbContext>(x => x.UseInMemoryDatabase(Guid.NewGuid().ToString()));
+//builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("AppConnection")));
+//builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlite($"Filename={Guid.NewGuid()}"));
+builder.Services.AddDbContext<AppDbContext>(x => x.UseInMemoryDatabase(Guid.NewGuid().ToString()));
 
 builder.Services.AddCustomAutoMapper(typeof(AppDbContext).Assembly);
 

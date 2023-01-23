@@ -12,12 +12,11 @@ public class AppDbContext : DbContext
     {
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-    }
-
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
     {
         configurationBuilder.ConfigureCustomConventions();
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+        => modelBuilder.ConfigureCustomRules(this);
 }
